@@ -3,7 +3,7 @@
 # Depoloyment Command
 > Deployment description .
    Deployemnt manages the pod.
-   ** pod containe docker container ** 
+   * pod containe docker container  
    deployment are used
    1. To redeploy when any pod fail
    2. To create more instance of pod
