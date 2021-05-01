@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubetest
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kubetest
+  template:
+    metadata:
+      labels:
+        app: kubetest
+    spec:
+      containers:
+      - name: nodeapp
+        image: sanatchoubey/internalproject:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000
