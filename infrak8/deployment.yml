@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: kubetest
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: kubetest
@@ -14,10 +14,13 @@ spec:
     spec:
       containers:
       - name: nodeapp
-        image: sanatchoubey/internalproject:1
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        imagePullPolicy: Always
+        image: sanatchoubey/internalproject:5
         ports:
         - containerPort: 8000
+        env:
+          - name: dataurl
+            value: "dataservice.default:9000"
+
+#  imagePullSecrets:
+        # - name: myregistry.com-registry-key

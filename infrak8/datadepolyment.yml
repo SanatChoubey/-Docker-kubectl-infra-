@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datadepl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: datadepl
+  template:
+    metadata:
+      labels:
+        app: datadepl
+    spec:
+      containers:
+      - name: datadepl
+        image: sanatchoubey/datapod:1
+        ports:
+        - containerPort: 9000
+        
